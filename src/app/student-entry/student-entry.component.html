@@ -1,0 +1,22 @@
+<p>student-entry works!</p>
+<form #studentForm = "ngForm" (ngSubmit)="NewStudent()">
+    <div>
+        <span>Roll Number:</span>
+        <input type="text" #rno="ngModel" name="RollNumber" class="form-control" [(ngModel)]="student.RollNumber" required/>
+        <span [hidden]="rno.valid || rno.pristine">RollNumber is Required</span>
+    </div>
+    <div>
+        <span>Name:</span>
+        <input type="text" #rName="ngModel" name="Name" [(ngModel)]="student.Name" required class="form-control"/>
+        <span [hidden]="rName.valid || rName.pristine || IsProperName(rName.value)" *ngIf=" IsProperName(rName.value)">Name is Required</span>
+    </div>
+    <div>
+        <span>IQ:</span>
+        <input type="text" name="IQ" [(ngModel)]="student.IQ" class="form-control" type="number"/>
+    </div>
+    <!-- <button type="button" name="btnSubmit" (click)="SaveData()">Save</button> -->
+    <button type="submit" [disabled]="!studentForm.form.valid" name="btnSubmit" (click)="SaveData();studentForm.reset()">Submit</button>
+</form>
+<div>
+    <app-student-listing [students]="students" (editStudent)="EditStudent($event)" (deleteStudent)="DeleteStudent($event)" ></app-student-listing>
+</div>

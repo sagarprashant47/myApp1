@@ -1,0 +1,51 @@
+<p>person-data-entry works!</p>
+<form  [formGroup]="personForm">
+<p>
+    <span>Name:</span>
+    <input type="text" class="form-control" name="name" formControlName="Name"/>
+    <!-- <span [hidden]="Name.untouched || Name.valid">Name is Required Field</span> -->
+</p>
+<p>
+    <span>Age:</span>
+    <input type="number" name="age" formControlName="Age" />
+    <!-- <span [hidden]="personForm.Age.pristine || personForm.Age.valid">Age is Required Field</span> -->
+</p>
+<div formGroupName="Address">
+     <label for="street1">Strret 1</label>   
+     <input type="text" class="form-control" formControlName="Street1"/>
+     <label for="City">City</label>   
+     <input type="text" class="form-control" formControlName="City"/>
+</div>
+<div formArrayName="workHistory">
+    <div *ngFor="let wh of WorkHistoryArray.controls; let i = index ">
+        <div [formGroupName]="i">
+            <label for="CompanyName">Company Name</label>
+            <input type="text" class="form-control" formControlName="CompanyName"/>
+            
+            <label for="StartDate">Start Date</label>
+            <input type="date" class="form-control" formControlName="StartDate"/>
+
+            <button type="button" (click)="SaveWorkHistory(i)">Save Work History</button>
+        </div>
+    </div>
+</div>
+<button type="submit" [disabled]="!personForm.valid" (click)="AddWorkHistory()">Save Data</button>
+<!-- <button (click)="PushData()"> Push Data</button> -->
+<!-- <button (click)="ShowData()">Click Me!</button> -->
+</form>
+
+<!-- <p>
+    My name is {{Name}}  and my Age is {{Age}}
+</p> -->
+
+<!-- <ul>
+    <li *ngFor ="let i of perLst">
+            Name :{{i.Name}} and age : {{i.Age}}
+    </li>
+</ul> -->
+<!-- 
+<ul>
+    <li *ngFor ="let i of perLst">
+            <app-person-data-display [person]=i></app-person-data-display>
+    </li>
+</ul> -->

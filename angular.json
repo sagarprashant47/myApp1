@@ -60,6 +60,15 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "ci":{
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": true,
+              "sourceMap": true,
+              "namedChunks": true ,
+              //press space here check all use of tags 
             }
           },
           "defaultConfiguration": "production"
