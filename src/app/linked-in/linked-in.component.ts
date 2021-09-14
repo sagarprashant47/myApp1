@@ -9,21 +9,32 @@ import { Post } from '../models/linkedInPost';
 })
 export class LinkedInComponent implements OnInit {
   linkedinPost: Post = new Post();
+  public lstPost : Array<Post>;
   constructor(public linkedinService : LinkedInService) 
   {
-
+      this.lstPost= new Array<Post>();
   }
 
   ngOnInit(): void {
+    // this.routes.data.subscribe(linkedIdDataList=>{
+    //   console.log("linkedIdDataList",linkedIdDataList);
+    //   this.lists = linkedIdDataList.linkedIdData as Array<LinkedInList>;
+    // })
+   
+    this.getAllPost();
+  }
+  public getAllPost(){
+    this.linkedinService.GetAllPost()
+     .subscribe(data => this.lstPost = data);
   }
 
   AddPost():void {
     //debugger
     //console.log(this.linkedinPost);  
     this.linkedinService.AddPost(this.linkedinPost).subscribe(result=>{
-      // this.linkedinService.getAllList().subscribe(list=>{
-      //   this.lists = list
-      //})
+       this.linkedinService.GetAllPost().subscribe(list=>{
+         this.lstPost = list
+      })
     });
   }
 

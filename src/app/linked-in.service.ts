@@ -20,4 +20,9 @@ export class LinkedInService {
     return this.http.post<Array<Post>>( `${this.baseurl}`+'/UpdatePost',data);
   }
 
+  GetAllPost():Observable<Array<Post>>{
+    //debugger
+    return this.http.get<Array<Post>>(`${this.baseurl}`);
+  }
+
 }
