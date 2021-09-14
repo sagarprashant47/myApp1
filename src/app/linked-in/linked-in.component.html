@@ -1,7 +1,9 @@
 <p>linked-in works!</p>
+<form #linkedInForm = "ngForm" (ngSubmit)="AddPost()">
 <div>
-    <input type="text">
+    <input type="text" name="textpost" class="form-control" required [(ngModel)]="linkedinPost.Text">
 </div>
 <div>
-    <button>POST</button>
+    <button type="submit">POST</button>
 </div>
+</form>

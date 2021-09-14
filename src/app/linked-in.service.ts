@@ -1,18 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Post } from './models/linkedInPost';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LinkedInService {
-  private post  : any[];
+  
   private readonly baseurl : string = "http://localhost:44140/api/home";
-  constructor() { 
-    this.post='';
-
+  formData: Post = new Post();
+  
+  constructor(private readonly http : HttpClient) { 
+ 
   }
 
-  getAllPosts(): Observable<Array<Student>> {
-    return this.http.get<Array<Student>>(this.baseurl);
+  AddPost(data:Post):Observable<Array<Post>>{
+    debugger
+    return this.http.post<Array<Post>>( `${this.baseurl}`+'/UpdatePost',data);
   }
 
 }
