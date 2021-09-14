@@ -9,7 +9,12 @@ import { PersonDataDisplayComponent } from './person-data-display/person-data-di
 import { StudentEntryComponent } from './student-entry/student-entry.component';
 import { StudentListingComponent } from './student-listing/student-listing.component';
 import { StudentServiceService } from './student-service.service';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ProperNamePipe } from './proper-name.pipe';
+import { UnlessDirective } from './unless.directive';
+import { HighlightDirective } from './highlight.directive';
+import { ForbiddenNameValidatorDirective } from './forbidden-name-validator.directive';
+import { LinkedInComponent } from './linked-in/linked-in.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import {HttpClientModule} from '@angular/common/http'
     PersonDataEntryComponent,
     PersonDataDisplayComponent,
     StudentEntryComponent,
-    StudentListingComponent
+    StudentListingComponent,
+    ProperNamePipe,
+    UnlessDirective,
+    HighlightDirective,
+    ForbiddenNameValidatorDirective,
+    LinkedInComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +39,6 @@ import {HttpClientModule} from '@angular/common/http'
   providers: [
     StudentServiceService
   ],
-  bootstrap: [PersonDataEntryComponent]
+  bootstrap: [LinkedInComponent]
 })
 export class AppModule { }

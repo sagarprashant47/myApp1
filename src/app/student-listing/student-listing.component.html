@@ -11,7 +11,7 @@
         {{item.RollNumber}}
     </td>
     <td>
-        {{item.Name}}
+        {{item.Name | properName}}
     </td>
     <td>
         {{item.IQ}}
@@ -23,3 +23,19 @@
     </tr>
 </tbody>
 </table>
+<!-- <p *appUnless>
+
+</p>
+<p *appUnless=>
+
+</p> -->
+<!-- <ul>
+    <li *ngfor="let item of students">
+            {{item}}
+    </li>
+</ul>
+<ul>
+    <ng-template ngFor let-item [ngForOf]="students">
+        <li>{{item}}</li>
+    </ng-template>
+</ul> -->
