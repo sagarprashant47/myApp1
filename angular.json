@@ -67,8 +67,7 @@
               "vendorChunk": true,
               "extractLicenses": true,
               "sourceMap": true,
-              "namedChunks": true ,
-              //press space here check all use of tags 
+              "namedChunks": true  
             }
           },
           "defaultConfiguration": "production"
