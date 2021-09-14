@@ -14,7 +14,8 @@ import { ProperNamePipe } from './proper-name.pipe';
 import { UnlessDirective } from './unless.directive';
 import { HighlightDirective } from './highlight.directive';
 import { ForbiddenNameValidatorDirective } from './forbidden-name-validator.directive';
-import { LinkedInComponent } from './linked-in/linked-in.component'
+import { LinkedInComponent } from './linked-in/linked-in.component';
+import { LinkedInCommentComponent } from './linked-in-comment/linked-in-comment.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LinkedInComponent } from './linked-in/linked-in.component'
     UnlessDirective,
     HighlightDirective,
     ForbiddenNameValidatorDirective,
-    LinkedInComponent
+    LinkedInComponent,
+    LinkedInCommentComponent
   ],
   imports: [
     BrowserModule,
