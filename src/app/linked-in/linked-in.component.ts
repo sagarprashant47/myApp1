@@ -16,10 +16,7 @@ export class LinkedInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.routes.data.subscribe(linkedIdDataList=>{
-    //   console.log("linkedIdDataList",linkedIdDataList);
-    //   this.lists = linkedIdDataList.linkedIdData as Array<LinkedInList>;
-    // })
+    
    
     this.getAllPost();
   }
