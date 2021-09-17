@@ -1,1 +1,27 @@
-<p>linked-in-comment works!</p>
+
+<form #linkedinCommentForm = "ngForm">
+    <hr/>
+    <div>
+       <b>Post number:</b> {{lstPosts.Id}}
+    </div>
+    <div>
+        {{lstPosts.Text}}
+    </div>
+    <div style="padding-top: 10px;">
+        <button type="button" (click)="ChangeButtonColor()"
+        >Like</button> &nbsp;
+        <button type="button">Comment</button>
+    </div>
+    <div class="row" style="margin-top: 10px;" id="dvComment">
+        <textarea title="Your Comment" rows="3" name="comment" cols="25" [(ngModel)]="objComment.Comments"></textarea>
+        <button type="submit" (click)="AddComment(lstPosts.Id)">Save</button>
+    </div>
+    <div style="height: 200px;overflow-y: auto;">
+        Comment List
+        <ul>
+            <li *ngFor ="let comment of lstPosts.PostComments">
+                   {{comment.Comments}}
+            </li>
+        </ul>
+    </div>
+</form> 

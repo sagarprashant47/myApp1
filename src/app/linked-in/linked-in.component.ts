@@ -20,9 +20,13 @@ export class LinkedInComponent implements OnInit {
    
     this.getAllPost();
   }
-  public getAllPost(){
+  public getAllPost(){ 
     this.linkedinService.GetAllPost()
-     .subscribe(data => this.lstPost = data);
+     .subscribe(data => {
+       debugger
+       this.lstPost = data
+    }); 
+
   }
 
   AddPost():void {
