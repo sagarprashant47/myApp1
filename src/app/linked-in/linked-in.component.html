@@ -8,7 +8,7 @@
     <button type="submit">POST</button>
 </div>
 </form> 
-
-<div>
-    <app-linked-in-comment [lstPosts]= "lstPost"></app-linked-in-comment>
+ 
+<div class="" *ngFor="let item of lstPost"> 
+    <app-linked-in-comment [lstPosts]= "item"></app-linked-in-comment>
 </div>
