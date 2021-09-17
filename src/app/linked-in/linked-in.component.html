@@ -1,11 +1,12 @@
 <p>linked-in works!</p>
 <form #linkedInForm = "ngForm" (ngSubmit)="AddPost()">
 <div>
-    <textarea  rows="4" cols="50" name="textpost" class="form-control" required [(ngModel)]="linkedinPost.Text">
-    </textarea>
+    <textarea  rows="4" #rno="ngModel" cols="50" required class="form-control" name="textpost" class="form-control" required [(ngModel)]="linkedinPost.Text">
+    </textarea> &nbsp;
+    <span [hidden]="rno.valid">Required</span>
 </div>
 <div>
-    <button type="submit">POST</button>
+    <button type="submit" [disabled]="linkedInForm.form.invalid">POST</button>
 </div>
 </form> 
  

@@ -23,7 +23,7 @@ export class LinkedInComponent implements OnInit {
   public getAllPost(){ 
     this.linkedinService.GetAllPost()
      .subscribe(data => {
-       debugger
+       //debugger
        this.lstPost = data
     }); 
 
