@@ -10,13 +10,15 @@
     <div style="padding-top: 10px;">
         <button type="button" (click)="ChangeButtonColor()"
         >Like</button> &nbsp;
-        <button type="button">Comment</button>
+        <button type="button" (click)="ShowHideCommentDiv()">Show/Hide Comment</button>
     </div>
-    <div class="row" style="margin-top: 10px;" id="dvComment">
-        <textarea title="Your Comment" rows="3" name="comment" cols="25" [(ngModel)]="objComment.Comments"></textarea>
-        <button type="submit" (click)="AddComment(lstPosts.Id)">Save</button>
+    <div class="row" style="margin-top: 10px;" id="dvComment" *ngIf="displayCommentDv">
+        <textarea title="Your Comment" rows="2" name="comment" cols="25" [(ngModel)]="objComment.Comments"></textarea>
+        &nbsp;
+        
+        <button type="submit" (click)="AddComment()">Save</button>
     </div>
-    <div style="height: 200px;overflow-y: auto;">
+    <div style="height: 150px;overflow-y: auto;">
         Comment List
         <ul>
             <li *ngFor ="let comment of lstPosts.PostComments">

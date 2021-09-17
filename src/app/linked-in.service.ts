@@ -26,8 +26,8 @@ export class LinkedInService {
     return this.http.get<Array<Post>>(`${this.baseurl}`);
   }
 
-  AddComment(postId: number ,data: Comment):Observable<Array<Comment>>{
-    //debugger
+  AddComment(postId: number,data: Comment):Observable<Array<Comment>>{
+    debugger
     return this.http.post<Array<Comment>>(`${this.baseurl}/AddComment/${postId}`,data);
   }
 }

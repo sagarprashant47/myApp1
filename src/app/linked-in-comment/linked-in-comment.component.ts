@@ -10,6 +10,7 @@ import { Comment } from '../models/linkedInComment';
 export class LinkedInCommentComponent implements OnInit {
   @Input() lstPosts : any;
   objComment: Comment = new Comment();
+  displayCommentDv:boolean =false;
   
   constructor(public linkedinService : LinkedInService) 
   { 
@@ -19,9 +20,13 @@ export class LinkedInCommentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  AddComment(postId: number){
+  ShowHideCommentDiv(){
+    this.displayCommentDv =!this.displayCommentDv;
+  }
+
+  AddComment(){
     debugger
-    this.linkedinService.AddComment(postId,this.objComment).subscribe(result=>{
+    this.linkedinService.AddComment(this.lstPosts.Id,this.objComment).subscribe(result=>{
         this.linkedinService.GetAllPost().subscribe(cmt=>{
           this.lstPosts =cmt;
         })
