@@ -30,4 +30,9 @@ export class LinkedInService {
     debugger
     return this.http.post<Array<Comment>>(`${this.baseurl}/AddComment/${postId}`,data);
   }
+
+  AddLike(postId: number):Observable<Array<Post>>{
+    debugger
+    return this.http.get<Array<Post>>(`${this.baseurl}/AddLike/${postId}`);
+  }
 }

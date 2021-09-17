@@ -9,7 +9,7 @@
     </div>
     <div style="padding-top: 10px;">
         <button type="button" (click)="ChangeButtonColor()"
-        >Like</button> &nbsp;
+        [ngStyle]="{'color': (lstPosts.PostLikes?.length > 0 ) ? 'blue': ''}" >Like {{lstPosts.PostLikes?.length}}</button> &nbsp;
         <button type="button" (click)="ShowHideCommentDiv()">Show/Hide Comment</button>
     </div>
     <div class="row" style="margin-top: 10px;" id="dvComment" *ngIf="displayCommentDv">

@@ -36,6 +36,7 @@ export class LinkedInComponent implements OnInit {
        this.linkedinService.GetAllPost().subscribe(list=>{
          this.lstPost = list
       })
+      this.linkedinPost.Text=""; 
     });
   }
 

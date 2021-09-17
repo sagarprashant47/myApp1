@@ -14,7 +14,7 @@ export class LinkedInCommentComponent implements OnInit {
   
   constructor(public linkedinService : LinkedInService) 
   { 
-    console.log(this.lstPosts);
+     
   }
 
   ngOnInit(): void {
@@ -26,17 +26,18 @@ export class LinkedInCommentComponent implements OnInit {
 
   AddComment(){
     debugger
-    this.linkedinService.AddComment(this.lstPosts.Id,this.objComment).subscribe(result=>{
-        this.linkedinService.GetAllPost().subscribe(cmt=>{
-          this.lstPosts =cmt;
-        })
+    this.linkedinService.AddComment(this.lstPosts.Id,this.objComment).subscribe(result=>{ 
+          this.lstPosts =result; 
       this.objComment.Comments ="";
     });
   }
 
   ChangeButtonColor( )
   {
-       
+    debugger
+    this.linkedinService.AddLike(this.lstPosts.Id).subscribe(posts=>{
+        this.lstPosts =posts;
+    });
   }
 
   
