@@ -30,14 +30,24 @@ export class LinkedInComponent implements OnInit {
   }
 
   AddPost():void {
-    //debugger
+    debugger
     //console.log(this.linkedinPost);  
     this.linkedinService.AddPost(this.linkedinPost).subscribe(result=>{
        this.linkedinService.GetAllPost().subscribe(list=>{
          this.lstPost = list
       })
       this.linkedinPost.Text=""; 
+      this.linkedinPost.ImgBase64=null;
     });
+  }
+
+  onFileChange($event:any) :void{
+    const file: File = $event.target.files[0];
+    const fileReader: FileReader = new FileReader();
+    fileReader.readAsDataURL(file);  
+    fileReader.onload = e => { 
+      this.linkedinPost.ImgBase64 = fileReader.result; 
+    }
   }
 
 }

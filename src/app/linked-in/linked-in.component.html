@@ -1,11 +1,15 @@
 <p>linked-in works!</p>
 <form #linkedInForm = "ngForm" (ngSubmit)="AddPost()">
-<div>
+<div class="form-group">
     <textarea  rows="4" #rno="ngModel" cols="50" required class="form-control" name="textpost" class="form-control" required [(ngModel)]="linkedinPost.Text">
     </textarea> &nbsp;
     <span [hidden]="rno.valid">Required</span>
 </div>
-<div>
+<div class="form-group">
+    <input type="file" id="UploadFile" value="upload" accept="image/x-png,image/jpg,image/jpeg" 
+    placeholder="Upload Image" (change)="onFileChange($event)">
+</div>
+<div class="form-group">
     <button type="submit" [disabled]="linkedInForm.form.invalid">POST</button>
 </div>
 </form> 

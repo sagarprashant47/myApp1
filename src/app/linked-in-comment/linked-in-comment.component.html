@@ -5,7 +5,10 @@
        <b>Post number:</b> {{lstPosts.Id}}
     </div>
     <div>
-        {{lstPosts.Text}}
+        {{lstPosts.Text}} 
+    </div>
+    <div class="mb-3" *ngIf="lstPosts.ImgBase64">
+        <img [src]="lstPosts.ImgBase64" height="300" />                 
     </div>
     <div style="padding-top: 10px;">
         <button type="button" (click)="ChangeButtonColor()"
